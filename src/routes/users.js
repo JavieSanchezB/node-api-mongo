@@ -21,10 +21,10 @@ router.get("/users", (req, res) => {
 });
 
 // get a user
-router.get("/users/:id", (req, res) => {
-  const { id } = req.params;
+router.get("/users/:doc_identidad", (req, res) => {
+  const { doc_identidad } = req.params;
   userSchema
-    .findById(id)
+    .findById(doc_identidad)
     .then((data) => res.json(data))
     .catch((error) => res.json({ message: error }));
 });
@@ -39,11 +39,11 @@ router.delete("/users/:id", (req, res) => {
 });
 
 // update a user
-router.put("/users/:id", (req, res) => {
-  const { id } = req.params;
-  const { name, age, email } = req.body;
+router.put("/users/:doc_identidad", (req, res) => {
+  const { doc_identidad } = req.params;
+  const { nombres, apellidos, email, password, rol } = req.body;
   userSchema
-    .updateOne({ _id: id }, { $set: { name, age, email } })
+    .updateOne({ doc_identidad: doc }, { $set: { doc_identidad, nombres, apellidos, email, password, rol } })
     .then((data) => res.json(data))
     .catch((error) => res.json({ message: error }));
 });

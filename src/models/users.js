@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const userSchema = mongoose.Schema({
     doc_identidad: {
-        type: Number,
+        type: String,
         required: true,
       },  
   nombres: {
@@ -28,4 +28,4 @@ const userSchema = mongoose.Schema({
 
 });
 
-module.exports = mongoose.model('Users', userSchema);
+module.exports = mongoose.model('usuarios', userSchema);

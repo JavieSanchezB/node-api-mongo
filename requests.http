@@ -12,23 +12,23 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:9000/api/users HTTP/1.1
+GET http://localhost:9000/api/users/123 HTTP/1.1
 
 ###
 GET http://localhost:9000/api/users/ HTTP/1.1
 
 ###
-DELETE http://localhost:9000/api/users/ HTTP/1.1
+DELETE http://localhost:9000/api/users/6473495b1364dcbecbd37cbf HTTP/1.1
 
 ###
-PUT http://localhost:9000/api/users/ HTTP/1.1
+PUT http://localhost:9000/api/users/123 HTTP/1.1
 Content-Type: application/json
 
 {
-   "doc_identidad": 123,
+  "doc_identidad": 123,
   "nombres": "Javier Andres",
   "apellidos": "Sanchez Bohorquez",
   "email": "javier@email.com",
-  "password": "contra123",
+  "password": "contra567",
   "rol": "Administrador
 }
