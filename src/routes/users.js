@@ -1,5 +1,6 @@
 const express = require("express");
 const userSchema = require("../models/users");
+const users = require("../models/users");
 
 const router = express.Router();
 
@@ -30,10 +31,10 @@ router.get("/users/:doc_identidad", (req, res) => {
 });
 
 // delete a user
-router.delete("/users/:id", (req, res) => {
-  const { id } = req.params;
+router.delete("/users/:doc_identidad", (req, res) => {
+  const { doc_identidad } = req.params;
   userSchema
-    .remove({ _id: id })
+    .deleteOne({ doc_identidad: doc_identidad })
     .then((data) => res.json(data))
     .catch((error) => res.json({ message: error }));
 });
@@ -41,9 +42,9 @@ router.delete("/users/:id", (req, res) => {
 // update a user
 router.put("/users/:doc_identidad", (req, res) => {
   const { doc_identidad } = req.params;
-  const { nombres, apellidos, email, password, rol } = req.body;
+  const { nombres, apellidos, email, password, rol, isAdmin } = req.body;
   userSchema
-    .updateOne({ doc_identidad: doc }, { $set: { doc_identidad, nombres, apellidos, email, password, rol } })
+    .updateOne({ doc_identidad: doc_identidad }, { $set: { doc_identidad, nombres, apellidos, email, password, rol, isAdmin } })
     .then((data) => res.json(data))
     .catch((error) => res.json({ message: error }));
 });
