@@ -1,17 +1,31 @@
-const mongodb = require("mongodb");
-const { route } = require("../routes/users");
+const mongoose = require("mongoose");
 
-const userSchema = mongodb.Schema({
-    name:{
-        type:String,
-    required: true
-    },
-    age: {
+const userSchema = mongoose.Schema({
+    doc_identidad: {
         type: Number,
-        required: true
-    },
-    email: {
-        type: String,
-        required: true
-    }
-})
+        required: true,
+      },  
+  nombres: {
+    type: String,
+    required: true,
+  },
+  apellidos: {
+    type: String,
+    required: true
+  },
+  email: {
+    type: String,
+    required: true
+  },
+  password:{
+    type: String,
+    required: true
+  },
+  rol: {
+    type: String,
+    required: true
+  }
+
+});
+
+module.exports = mongoose.model('Users', userSchema);
