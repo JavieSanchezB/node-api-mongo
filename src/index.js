@@ -19,7 +19,7 @@ app.get("/", (req, res) => {
 mongoose
   .connect(process.env.URL_API_MONGO)
   .then(() => console.log("Connected to MongoDB Atlas"))
-  .catch((error) => alert(error));
+  .catch((error) => console.log(error));
 
 // server listening
 app.listen(port, () => console.log("Server listening to", port));
