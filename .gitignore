@@ -2,3 +2,4 @@ notas.txt
 ejemplo_mongo_v1.js
 .env
 /node_modules
+ecosystem.config.js
